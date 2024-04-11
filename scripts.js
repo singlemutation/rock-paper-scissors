@@ -1,13 +1,13 @@
 function getComputerChoice() {
     let computerChoiceNumber = random(3);
     if ( computerChoiceNumber === 0 ) {
-            return "rock"
+        return "rock"
     }
     if ( computerChoiceNumber === 1 ) {
-            return "paper"
+        return "paper"
     }
     if ( computerChoiceNumber === 2 ) {
-            return "scissors"
+        return "scissors"
     }
 }
 
@@ -41,10 +41,19 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-const playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-const computerSelection = getComputerChoice();
+function playGame() {
+    playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+    computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+    console.log("You picked: " + playerSelection);
+    console.log("CPU picked: " + computerSelection)
+    console.log(playRound(playerSelection, computerSelection));
+}
+
+for (let i = 0; i < 5; i++) {
+    playGame();
+}
+// const playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+// const computerSelection = getComputerChoice();
 
 
-console.log("You picked: " + playerSelection);
-console.log("CPU picked: " + computerSelection)
-console.log(playRound(playerSelection, computerSelection));
