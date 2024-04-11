@@ -1,6 +1,6 @@
 function getComputerChoice() {
     let computerChoiceNumber = random(3);
-    let computerSelection;
+    let computerChoice;
     if ( computerChoiceNumber === 0 ) {
             return computerChoice = "rock"
     }
@@ -47,7 +47,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "rock";
+const playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
 const computerSelection = getComputerChoice();
 
 
