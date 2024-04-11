@@ -1,14 +1,13 @@
 function getComputerChoice() {
     let computerChoiceNumber = random(3);
-    let computerChoice;
     if ( computerChoiceNumber === 0 ) {
-            return computerChoice = "rock"
+            return "rock"
     }
     if ( computerChoiceNumber === 1 ) {
-            return computerChoice = "paper"
+            return "paper"
     }
     if ( computerChoiceNumber === 2 ) {
-            return computerChoice = "scissors"
+            return "scissors"
     }
 }
 
@@ -24,10 +23,7 @@ function playRound(playerSelection, computerSelection) {
     if ( ( playerSelection === "rock" ) && ( computerSelection === "scissors" ) ) {
         return "You Win! Rock beats Scissors"
     }
-    if ( ( playerSelection === "rock" ) && ( computerSelection === "rock" ) ) {
-        return "Tie!"
-    }
-    if ( ( playerSelection === "paper" ) && ( computerSelection === "paper" ) ) {
+    if ( playerSelection === computerSelection ) {
         return "Tie!"
     }
     if ( ( playerSelection === "paper" ) && ( computerSelection === "scissors" ) ) {
@@ -42,9 +38,7 @@ function playRound(playerSelection, computerSelection) {
     if ( ( playerSelection === "scissors" ) && ( computerSelection === "rock" ) ) {
         return "You Lose! Rock beats Scissors"
     }
-    if ( ( playerSelection === "scissors" ) && ( computerSelection === "scissors" ) ) {
-        return "Tie!"
-    }
+
 }
 
 const playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
