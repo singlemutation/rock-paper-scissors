@@ -62,19 +62,16 @@ for (let i = 0; i < 5; i++) {
     playGame();
 }
 
-// function winner(compScore, playerScore) {
-//     playerScore = 0;
-//     compScore = 0;
-//     if compScore > playerScore {
-//         console.log("You lost the game!")
-//     }
-//     if compScore < playerScore {
-//         console.log("You won the game!")
-//     }
-//     else {
-//         console.log("You tied the computer!")
-//     }
-// }
+
+if ( compScore > playerScore ) {
+    console.log("You lost the game!")
+}
+if ( compScore < playerScore ) {
+    console.log("You won the game!")
+}
+else {
+    console.log("You tied the computer!")
+}
 
 
 
