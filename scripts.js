@@ -19,8 +19,8 @@ let compScore = 0;
 let playerScore = 0;
 
 function playRound(playerSelection, computerSelection) {
-    if ( playerSelection === "rock" && computerSelection === "paper" ) {
-        compScore++
+    if ( ( playerSelection === "rock" ) && ( computerSelection === "paper" ) ) {
+        compScore++;
         return "You Lose! Paper beats Rock"
     }
     if ( ( playerSelection === "rock" ) && ( computerSelection === "scissors" ) ) {
@@ -52,11 +52,10 @@ function playRound(playerSelection, computerSelection) {
 function playGame() {
     playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
     computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
     console.log("You picked: " + playerSelection);
-    console.log("CPU picked: " + computerSelection)
+    console.log("CPU picked: " + computerSelection);
     console.log(playRound(playerSelection, computerSelection));
-    console.log("You: " + playerScore + " CPU: " + compScore)   //it's adding 2 points for some reason
+    console.log("You: " + playerScore + " CPU: " + compScore)
 }
 
 for (let i = 0; i < 5; i++) {
