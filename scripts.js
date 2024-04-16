@@ -18,6 +18,12 @@ function random(number) {
 let compScore = 0;
 let playerScore = 0;
 
+const rockButton = document.getElementById("Rock");
+const paperButton = document.getElementById("Paper");
+const scissorsButton = document.getElementById("Scissors");
+
+
+
 function playRound(playerSelection, computerSelection) {
     if ( ( playerSelection === "rock" ) && ( computerSelection === "paper" ) ) {
         compScore++;
@@ -49,31 +55,44 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function playGame() {
-    playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+// function playGame() {
+//     playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+//     computerSelection = getComputerChoice();
+//     console.log("You picked: " + playerSelection);
+//     console.log("CPU picked: " + computerSelection);
+//     console.log(playRound(playerSelection, computerSelection));
+//     console.log("You: " + playerScore + " CPU: " + compScore)
+// }
+
+
+// playGame();
+
+
+// function winner(compScore, playerScore){
+//     if ( compScore > playerScore ) {
+//         console.log("You lost the game!")
+//     }
+//     if ( compScore < playerScore ) {
+//         console.log("You won the game!")
+//     }
+//     if ( compScore === playerScore ) {
+//         console.log("You tied the computer!")
+//     }
+// }
+
+// winner(compScore, playerScore);
+
+
+const buttons = document.querySelectorAll("button");
+
+
+buttons.forEach((button) => {
+
+  button.addEventListener("click", () => {
+    playerSelection = button.id;
+    console.log(playerSelection)
     computerSelection = getComputerChoice();
-    console.log("You picked: " + playerSelection);
-    console.log("CPU picked: " + computerSelection);
+    console.log(computerSelection);
     console.log(playRound(playerSelection, computerSelection));
-    console.log("You: " + playerScore + " CPU: " + compScore)
-}
-
-for (let i = 0; i < 5; i++) {
-    playGame();
-}
-
-function winner(compScore, playerScore){
-    if ( compScore > playerScore ) {
-        console.log("You lost the game!")
-    }
-    if ( compScore < playerScore ) {
-        console.log("You won the game!")
-    }
-    if ( compScore === playerScore ) {
-        console.log("You tied the computer!")
-    }
-}
-
-winner(compScore, playerScore);
-
-
+  });
+});
