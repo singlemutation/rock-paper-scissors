@@ -26,73 +26,68 @@ const scissorsButton = document.getElementById("Scissors");
 
 function playRound(playerSelection, computerSelection) {
     if ( ( playerSelection === "rock" ) && ( computerSelection === "paper" ) ) {
-        compScore++;
+        ++compScore;
         return "You Lose! Paper beats Rock"
     }
     if ( ( playerSelection === "rock" ) && ( computerSelection === "scissors" ) ) {
-        playerScore++;
+        ++playerScore;
         return "You Win! Rock beats Scissors"
     }
     if ( playerSelection === computerSelection ) {
         return "Tie!"
     }
     if ( ( playerSelection === "paper" ) && ( computerSelection === "scissors" ) ) {
-        compScore++;
+        ++compScore;
         return "You Lose! Scissors beats Paper"
     }
     if ( ( playerSelection === "paper" ) && ( computerSelection === "rock" ) ) {
-        playerScore++;
+        ++playerScore;
         return "You Win! Paper beats Rock"
     }
     if ( ( playerSelection === "scissors" ) && ( computerSelection === "paper" ) ) {
-        playerScore++;
+        ++playerScore;
         return "You Win! Scissors beats Paper"
     }
     if ( ( playerSelection === "scissors" ) && ( computerSelection === "rock" ) ) {
-        compScore++;
+        ++compScore;
         return "You Lose! Rock beats Scissors"
     }
 
 }
 
-// function playGame() {
-//     playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-//     computerSelection = getComputerChoice();
-//     console.log("You picked: " + playerSelection);
-//     console.log("CPU picked: " + computerSelection);
-//     console.log(playRound(playerSelection, computerSelection));
-//     console.log("You: " + playerScore + " CPU: " + compScore)
-// }
-
-
-// playGame();
-
-
-// function winner(compScore, playerScore){
-//     if ( compScore > playerScore ) {
-//         console.log("You lost the game!")
-//     }
-//     if ( compScore < playerScore ) {
-//         console.log("You won the game!")
-//     }
-//     if ( compScore === playerScore ) {
-//         console.log("You tied the computer!")
-//     }
-// }
-
-// winner(compScore, playerScore);
-
-
+const container = document.querySelector("div");
 const buttons = document.querySelectorAll("button");
 
-
 buttons.forEach((button) => {
-
   button.addEventListener("click", () => {
     playerSelection = button.id;
-    console.log(playerSelection)
+    const playerChoice = document.createElement("div");
+    playerChoice.textContent = "You chose: " + playerSelection;
+    container.appendChild(playerChoice);
     computerSelection = getComputerChoice();
-    console.log(computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
+    const compChoice = document.createElement("div");
+    compChoice.textContent = "Computer chose: " + computerSelection;
+    container.appendChild(compChoice);
+    playRound(playerSelection, computerSelection);
+    const scoreKeeper = document.createElement("div");
+    scoreKeeper.textContent = "You: " + playerScore + " CPU: " + compScore;
+    container.appendChild(scoreKeeper);
+    winner(compScore, playerScore);
   });
 });
+
+function winner(compScore, playerScore){
+    if ( compScore === 5 ) {
+        const compWin = document.createElement("div");
+        compWin.textContent = "You lost the game!";
+        compWin.style.color = 'red';
+        container.appendChild(compWin);
+    }
+    if ( playerScore === 5 ) {
+        const playWin = document.createElement("div");
+        playWin.textContent = "You won the game!";
+        playWin.style.color = 'green';
+        container.appendChild(playWin);
+    }
+}
+
